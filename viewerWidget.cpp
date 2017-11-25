@@ -8,10 +8,6 @@
 #include <osg/Node>
 #include <osgDB/ReadFile>
 
-#include <osgEarth/Map>
-#include <osgEarth/MapNode>
-#include <osgEarthUtil/EarthManipulator>
-
 #include <X11/Xlib.h>
 
 ViewerWidget::ViewerWidget(osg::Group* scene, QWidget* parent) :
