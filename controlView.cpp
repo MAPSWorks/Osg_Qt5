@@ -76,7 +76,7 @@ QList<QAction*> ControlView::setupDockWidgets( QMainWindow *mainWindow)
     settingsWidget->setLayout(settingsLayout);
 
     QCheckBox* showEventsLayer = new QCheckBox();
-    showEventsLayer->setText("Events Layer");
+    showEventsLayer->setText("Sample Layer");
     showEventsLayer->setChecked(true);
     showEventsLayer->setShortcut( QKeySequence(Qt::CTRL + Qt::Key_E) );
     showEventsLayer->setShortcut( QKeySequence(Qt::Key_E) );
