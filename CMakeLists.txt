@@ -1,5 +1,8 @@
-cmake_minimum_required(VERSION 3.9)
-cmake_policy(VERSION 3.9)
+cmake_minimum_required(VERSION 3.4)
+cmake_policy(VERSION 3.4)
+
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED YES)
 
 project( OsgQt5 )
 
@@ -15,7 +18,7 @@ find_package(Qt5 REQUIRED COMPONENTS
         PrintSupport
         Gui
         )
-find_package(OpenSceneGraph 3.4.1 REQUIRED osg osgDB osgAnimation osgUtil osgGA osgFX osgUtil osgViewer osgWidget osgText osgParticle)
+find_package(OpenSceneGraph 3.4.0 REQUIRED osg osgDB osgAnimation osgUtil osgGA osgFX osgUtil osgViewer osgWidget osgText osgParticle)
 SET(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/CMakeModules;${CMAKE_MODULE_PATH}")
 find_package(X11)
 find_package(OpenGL REQUIRED)
