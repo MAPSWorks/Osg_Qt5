@@ -9,46 +9,42 @@
 #include <osg/MatrixTransform>
 #include <osg/ShapeDrawable>
 
-Scene::Scene(QWidget* parent):
-    QWidget(parent),
-    _scene(new osg::Group),
-    _visEventsLayer(new osg::Group)
-{
-    addCube();
+Scene::Scene( QWidget* parent ):
+     QWidget( parent ),
+     _scene( new osg::Group ),
+     _visEventsLayer( new osg::Group ) {
+     addCube();
 //     _scene->addChild(_mapNode);
-    _visEventsLayer->addChild( sphere() );
-    _scene->addChild(_visEventsLayer.get());
+     _visEventsLayer->addChild( sphere() );
+     _scene->addChild( _visEventsLayer.get() );
 //     addVisEvents(true);
 }
 
 
-void Scene::showSampleLayer(bool show)
-{
-    if(show) {
-        _visEventsLayer->asNode()->setNodeMask( 0xffffffff );
-    }
-    else {
-        _visEventsLayer->asNode()->setNodeMask( 0x0 );
-    }
+void Scene::showSampleLayer( bool show ) {
+     if ( show ) {
+               _visEventsLayer->asNode()->setNodeMask( 0xffffffff );
+          }
+     else {
+               _visEventsLayer->asNode()->setNodeMask( 0x0 );
+          }
 }
 
 
-void Scene::addCube()
-{
-    osg::Geode* cube = new osg::Geode();
-    cube->setName("Cube");
-    cube->addDrawable(new osg::ShapeDrawable(new osg::Box()));
-    osg::ref_ptr<osg::MatrixTransform> transform = new osg::MatrixTransform;
-    transform->setMatrix( osg::Matrix::translate( osg::Vec3( 0.0f, 1.0f, 0.0f ) ) *  osg::Matrix::rotate( 37.0f, osg::Vec3( 1.0f, 0.0f, 1.0f ) ) );
-    transform->addChild( cube );
-    _scene->addChild(transform.get());
+void Scene::addCube() {
+     osg::Geode* cube = new osg::Geode();
+     cube->setName( "Cube" );
+     cube->addDrawable( new osg::ShapeDrawable( new osg::Box() ) );
+     osg::ref_ptr<osg::MatrixTransform> transform = new osg::MatrixTransform;
+     transform->setMatrix( osg::Matrix::translate( osg::Vec3( 0.0f, 1.0f, 0.0f ) ) *  osg::Matrix::rotate( 37.0f, osg::Vec3( 1.0f, 0.0f, 1.0f ) ) );
+     transform->addChild( cube );
+     _scene->addChild( transform.get() );
 }
 
-osg::Geode* Scene::sphere()
-{
+osg::Geode* Scene::sphere() {
 
-    osg::Geode* sphere = new osg::Geode();
-    sphere->setName("Sphere");
-    sphere->addDrawable(new osg::ShapeDrawable(new osg::Sphere()));
-    return sphere;
+     osg::Geode* sphere = new osg::Geode();
+     sphere->setName( "Sphere" );
+     sphere->addDrawable( new osg::ShapeDrawable( new osg::Sphere() ) );
+     return sphere;
 }

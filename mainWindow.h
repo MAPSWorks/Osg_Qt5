@@ -7,24 +7,23 @@
 
 #include "controlView.h"
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget* parent = 0);
-    ~MainWindow() override;
+     explicit MainWindow( QWidget* parent = 0 );
+     ~MainWindow() override;
 
 protected:
-    void setupStatusBar();
-    void setupMenus();
+     void setupStatusBar();
+     void setupMenus();
 
 
 private:
-    void  createMenus( const QList<QAction*> &panelActions );
+     void  createMenus( const QList<QAction*>& panelActions );
 
-    ControlView*            _controlView;
-    QMenu*                  _panelMenu;
+     ControlView*            _controlView;
+     QMenu*                  _panelMenu;
 
 private slots:
 
