@@ -32,6 +32,7 @@ void Scene::showSampleLayer( bool show ) {
 
 
 void Scene::addCube() {
+    //test
      osg::Geode* cube = new osg::Geode();
      cube->setName( "Cube" );
      cube->addDrawable( new osg::ShapeDrawable( new osg::Box() ) );
