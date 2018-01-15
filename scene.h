@@ -21,7 +21,7 @@ public slots:
 
 private:
      void addCube();
-     osg::Geode* sphere();
+     osg::ref_ptr<osg::Geode> sphere();
 
      osg::ref_ptr<osg::Group>    _scene;
      osg::ref_ptr<osg::Group>    _visEventsLayer;

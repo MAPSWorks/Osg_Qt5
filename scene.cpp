@@ -32,19 +32,19 @@ void Scene::showSampleLayer( bool show ) {
 
 
 void Scene::addCube() {
-    //test
-     osg::Geode* cube = new osg::Geode();
+     osg::ref_ptr<osg::Geode> cube = new osg::Geode();
      cube->setName( "Cube" );
      cube->addDrawable( new osg::ShapeDrawable( new osg::Box() ) );
      osg::ref_ptr<osg::MatrixTransform> transform = new osg::MatrixTransform;
-     transform->setMatrix( osg::Matrix::translate( osg::Vec3( 0.0f, 1.0f, 0.0f ) ) *  osg::Matrix::rotate( 37.0f, osg::Vec3( 1.0f, 0.0f, 1.0f ) ) );
+     transform->setMatrix( osg::Matrix::translate( osg::Vec3( 0.0f, 1.0f, 0.0f ) ) *
+                           osg::Matrix::rotate( 37.0f, osg::Vec3( 1.0f, 0.0f, 1.0f ) ) );
      transform->addChild( cube );
      _scene->addChild( transform.get() );
 }
 
-osg::Geode* Scene::sphere() {
+osg::ref_ptr<osg::Geode> Scene::sphere() {
 
-     osg::Geode* sphere = new osg::Geode();
+     osg::ref_ptr<osg::Geode> sphere = new osg::Geode();
      sphere->setName( "Sphere" );
      sphere->addDrawable( new osg::ShapeDrawable( new osg::Sphere() ) );
      return sphere;
