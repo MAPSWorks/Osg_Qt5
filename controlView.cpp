@@ -81,6 +81,13 @@ QList<QAction*> ControlView::setupDockWidgets( QMainWindow* mainWindow ) {
      connect( showEventsLayer, &QCheckBox::clicked, _everything, &Scene::showSampleLayer );
      settingsLayout->addWidget( showEventsLayer );
 
+     QCheckBox* showWireFrame = new QCheckBox();
+     showWireFrame->setText( "Wire Frame" );
+     showWireFrame->setChecked( false );
+     showWireFrame->setShortcut( QKeySequence( Qt::Key_W ) );
+     connect( showWireFrame, &QCheckBox::clicked, _everything, &Scene::showWireFrame );
+     settingsLayout->addWidget( showWireFrame );
+     
      settingsDock->setWidget( settingsWidget );
      mainWindow->addDockWidget( Qt::LeftDockWidgetArea, settingsDock );
 

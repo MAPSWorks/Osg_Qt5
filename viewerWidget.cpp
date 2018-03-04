@@ -8,7 +8,9 @@
 #include <osg/Node>
 #include <osgDB/ReadFile>
 
+#ifdef Q_WS_X11
 #include <X11/Xlib.h>
+#endif
 
 ViewerWidget::ViewerWidget(osg::Group* scene, QWidget* parent) :
 // ViewerWidget::ViewerWidget(QWidget* parent) :

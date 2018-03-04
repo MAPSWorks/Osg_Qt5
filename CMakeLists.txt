@@ -6,10 +6,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED YES)
 
 project( OsgQt5 )
 
-# if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-#     SET(Qt5_DIR "/opt/Qt5.9.1/5.9.1/gcc_64/lib/cmake/Qt5")
-# endif()
-
 find_package(Qt5 REQUIRED COMPONENTS
         Widgets 
         Network
@@ -19,7 +15,10 @@ find_package(Qt5 REQUIRED COMPONENTS
         )
 find_package(OpenSceneGraph 3.4 REQUIRED osg osgDB osgAnimation osgUtil osgGA osgFX osgUtil osgViewer osgWidget osgText osgParticle)
 SET(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/CMakeModules;${CMAKE_MODULE_PATH}")
+if (UNIX)
 find_package(X11)
+endif(UNIX)
+
 find_package(OpenGL REQUIRED)
 
 
@@ -45,7 +44,9 @@ set (HEADERS
             scene.h
             viewerWidget.h
 )
-
+if (UNIX)
+set(LinuxLibs ${X11_LIBRARIES})
+endif (UNIX)
 # set(OSG_NOTIFY_LEVEL DEBUG_FP)
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 target_link_libraries(${PROJECT_NAME} 
@@ -53,6 +54,6 @@ target_link_libraries(${PROJECT_NAME}
 #             /usr/lib64/librt.so
             Qt5::Widgets Qt5::Network Qt5::OpenGL Qt5::PrintSupport Qt5::Gui
 			${OPENSCENEGRAPH_LIBRARIES}
-            ${X11_LIBRARIES}
+			${LinuxLibs}
             )
 

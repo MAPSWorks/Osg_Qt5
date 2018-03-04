@@ -18,10 +18,12 @@ public:
 
 public slots:
      void showSampleLayer( bool show );
+     void showWireFrame( bool wireFrame );
 
 private:
-     void addCube();
-     osg::ref_ptr<osg::Geode> sphere();
+     osg::ref_ptr<osg::Node> addCube();
+     osg::ref_ptr<osg::Geode> addSphere();
+     osg::ref_ptr<osg::Node> addMonkeyHead();
 
      osg::ref_ptr<osg::Group>    _scene;
      osg::ref_ptr<osg::Group>    _visEventsLayer;
